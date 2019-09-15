@@ -82,6 +82,7 @@
     <hadoop.scope>compile</hadoop.scope>
     <spark.scala-2.11.version>2.2.3</spark.scala-2.11.version>
     <spark.version>${spark.scala-2.11.version}</spark.version>
+    <xsql.version>0.7.0-SNAPSHOT</xsql.version>
     <hive.version>3.0.0</hive.version>
     <commons-codec.version>1.9</commons-codec.version>
     <httpclient.version>4.5.3</httpclient.version>
@@ -192,7 +193,7 @@
     <module>client-http</module>
     <module>core</module>
     <module>core/scala-2.11</module>
-    <module>coverage</module>
+<!--    <module>coverage</module>-->
     <module>examples</module>
     <module>python-api</module>
     <module>repl</module>
@@ -203,7 +204,7 @@
     <module>scala-api/scala-2.11</module>
     <module>server</module>
     <module>test-lib</module>
-    <module>integration-test</module>
+<!--    <module>integration-test</module>-->
   </modules>
 
   <dependencies>
@@ -420,7 +421,7 @@
       <dependency>
         <groupId>org.apache.spark</groupId>
         <artifactId>spark-sql_${scala.binary.version}</artifactId>
-        <version>${spark.version}</version>
+        <version>${xsql.version}</version>
       </dependency>
 
       <dependency>

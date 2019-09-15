@@ -80,6 +80,10 @@ public class SparkEntries {
               builder.enableHiveSupport();
               sparksession = builder.getOrCreate();
               LOG.info("Created Spark session (with Hive support).");
+            } else if (catalog.equals("xsql") && SparkSession$.MODULE$.xsqlClassesArePresent()) {
+              builder.enableXSQLSupport();
+              sparksession = builder.getOrCreate();
+              LOG.info("Created Spark session (with XSQL support).");
             } else {
               builder.config("spark.sql.catalogImplementation", "in-memory");
               sparksession = builder.getOrCreate();

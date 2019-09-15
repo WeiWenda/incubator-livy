@@ -334,10 +334,11 @@ object InteractiveSession extends Logging {
 
     mergeConfList(livyJars(livyConf, scalaVersion), LivyConf.SPARK_JARS)
     val enableHiveContext = livyConf.getBoolean(LivyConf.ENABLE_HIVE_CONTEXT)
+    val enableXSQL = livyConf.getBoolean(LivyConf.ENABLE_XSQL)
     // pass spark.livy.spark_major_version to driver
     builderProperties.put("spark.livy.spark_major_version", sparkMajorVersion.toString)
 
-    val confVal = if (enableHiveContext) "hive" else "in-memory"
+    val confVal = if (enableXSQL) "xsql" else if (enableHiveContext) "hive" else "in-memory"
     builderProperties.put("spark.sql.catalogImplementation", confVal)
 
     if (enableHiveContext) {
